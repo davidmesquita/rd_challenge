@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   root "rails/health#show"
-   resource :cart, only: [:show] do
-    post 'add_item', to: 'carts#add_item'
+  resource :cart, only: [:show] do
+    post '/', to: 'carts#add_new_item'
+    post 'add_item', to: 'carts#update_item_quantity'
     delete ':product_id', to: 'carts#remove_item'
+    delete ':product_id/remove_all', to: 'carts#remove_all'
   end
 end
