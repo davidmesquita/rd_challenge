@@ -2,6 +2,7 @@ class Cart < ApplicationRecord
   enum status: { active: 0, abandoned: 1, purchased: 2 }
 
   validates :total_price, numericality: { greater_than_or_equal_to: 0 }
+  attr_accessor :items
 
   after_initialize do
     self.items ||= {}

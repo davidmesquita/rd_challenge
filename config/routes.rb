@@ -7,9 +7,10 @@ Rails.application.routes.draw do
 
   root "rails/health#show"
   resource :cart, only: [:show] do
-    post '/', to: 'carts#add_new_item'
-    post 'add_item', to: 'carts#update_item_quantity'
-    delete ':product_id', to: 'carts#remove_item'
-    delete ':product_id/remove_all', to: 'carts#remove_all'
+    post '/', to: 'carts#add_new_item'                  # adiciona produto
+    post 'add_item', to: 'carts#update_item_quantity'  # altera quantidade existente
+    delete ':product_id', to: 'carts#remove_item'      # decrementa 1 unidade
+    delete ':product_id/remove_all', to: 'carts#remove_all' # remove todas
   end
+
 end
