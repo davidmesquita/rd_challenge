@@ -1,4 +1,3 @@
-# spec/routing/carts_routing_spec.rb
 require "rails_helper"
 
 RSpec.describe CartsController, type: :routing do
